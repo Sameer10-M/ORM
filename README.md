@@ -23,10 +23,34 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+```
+admin.py
 
+from django.contrib import admin 
+from .models import Movie_DB,Movie_DBAdmin 
+admin.site.register(Movie_DB,Movie_DBAdmin)
+```
+```
+models.py
+from django.db import models 
+from django.contrib import admin 
+class  Movie_DB(models.Model): 
+    Movie_ID = models.CharField(max_length=20, primary_key=True) 
+    Title = models.CharField(max_length=100) 
+    Genre = models.CharField(max_length=20) 
+    Rating = models.IntegerField( ) 
+    Language = models.CharField(max_length=15) 
+    Release_Date = models.DateField( ) 
+
+class Movie_DBAdmin(admin.ModelAdmin): 
+    list_display = ('Movie_ID', 'Title', 'Genre', 'Rating', 'Language', 'Release_Date') 
+
+```
 
 
 ## OUTPUT
+![Screenshot 2025-05-12 075508](https://github.com/user-attachments/assets/1c12a3c8-f723-4b05-b51f-97e5fa2e2448)
+
 
 Include the screenshot of your admin page.
 
